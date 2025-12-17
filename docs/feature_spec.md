@@ -1,23 +1,19 @@
-# Feature Spec — User-level Modeling Table
+# Feature Spec (User-level Modeling Table)
 
-## Primary Key
-- user_pseudo_id (GA4 user identifier)
+## User key
+- `user_pseudo_id`
 
 ## Core behavior features
-- sessions: number of sessions per user
-- purchases: number of purchase events per user
-- revenue: total purchase revenue per user
-- AOV (average order value): revenue / purchases (safe divide)
+- sessions (distinct ga_session_id)
+- purchases (count of purchase events)
+- revenue (sum of purchase value proxy)
+- AOV = revenue / purchases (if purchases > 0)
 
-## Time-based features
-- recency_days: days since last activity
-- tenure_days: days between first and last activity (inclusive)
+## Time features
+- recency_days: days since last event in selected window
+- tenure_days: days between first and last event in selected window
 
-## Dimensions for segmentation / analysis
-- device: device category (desktop/mobile/tablet)
-- geo: country (or region if needed)
-- traffic source: source / medium / campaign
-
-## Notes
-- Dataset: bigquery-public-data.ga4_obfuscated_sample_ecommerce
-- We will build a user-level aggregated table from events_* tables.
+## Attribution / dimensions
+- device_category (most frequent)
+- country (most frequent)
+- source / medium (most frequent)
