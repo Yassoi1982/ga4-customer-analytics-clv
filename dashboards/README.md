@@ -1,12 +1,13 @@
 # Dashboards Folder
 
-This folder contains dashboard assets and notes.
+This folder stores dashboard assets and links.
 
 ## What goes here
-- Looker Studio links (in a markdown file)
-- Power BI/Tableau screenshots (PNG) or export files (if used)
-- Dashboard requirements + KPI definitions
+- Looker Studio / Power BI links
+- screenshots (png/jpg)
+- exported visuals (pdf)
+- notes about dashboard pages & filters
 
-## Recommended files
-- `dashboards_links.md` — links to published dashboards
-- `kpi_definitions.md` — KPI definitions and formulas
+## Suggested files
+- dashboard_links.md
+- screenshots/

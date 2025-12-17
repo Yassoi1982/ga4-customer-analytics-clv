@@ -1,13 +1,9 @@
 # SQL Folder
 
-This folder contains all SQL used in the project, organized by phase.
+This folder contains all BigQuery SQL used in the project.
 
 ## Structure
-- `exploration/` — data understanding, sanity checks, basic aggregations
-- `feature_engineering/` — user-level features table + validation checks
-- `modeling/` — RFM, K-Means (BQML), CLV feature prep and estimation
-- `analysis/` — final analysis queries used for insights + dashboard tables
-
-## Conventions
-- Each SQL file includes a header comment: purpose + dataset/table references.
-- Queries are written for BigQuery Standard SQL.
+- exploration/         -> data understanding queries
+- feature_engineering/ -> user-level feature tables + validation checks
+- modeling/            -> segmentation (RFM + KMeans) + CLV modeling
+- analysis/            -> funnel + breakdown analysis
