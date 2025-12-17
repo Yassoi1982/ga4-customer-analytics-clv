@@ -1,18 +1,13 @@
-# GA4 Ecommerce — Customer Analytics & CLV
+# SQL Folder
 
-## Goal
-Analyze customer behavior and estimate Customer Lifetime Value (CLV) to support segmentation and campaign targeting.
+This folder contains all SQL used in the project, organized by phase.
 
-## Dataset
-bigquery-public-data.ga4_obfuscated_sample_ecommerce
+## Structure
+- `exploration/` — data understanding, sanity checks, basic aggregations
+- `feature_engineering/` — user-level features table + validation checks
+- `modeling/` — RFM, K-Means (BQML), CLV feature prep and estimation
+- `analysis/` — final analysis queries used for insights + dashboard tables
 
-## Tools
-- BigQuery (SQL)
-- Python (optional: feature engineering / modeling)
-- Looker Studio or Power BI (dashboard)
-
-## Outputs
-- Customer segmentation (RFM + K-means)
-- CLV estimation per user
-- Funnel & conversion analysis
-- Campaign targeting recommendations by segment
+## Conventions
+- Each SQL file includes a header comment: purpose + dataset/table references.
+- Queries are written for BigQuery Standard SQL.
