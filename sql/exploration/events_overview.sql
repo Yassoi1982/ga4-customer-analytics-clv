@@ -1,12 +1,9 @@
--- Purpose: Confirm available event tables and overall counts by day
+-- Purpose: Confirm tables, date range, and total events
 -- Dataset: bigquery-public-data.ga4_obfuscated_sample_ecommerce
--- Note: Filter by _TABLE_SUFFIX for date range selection.
 
 SELECT
-  _TABLE_SUFFIX AS event_date,
-  COUNT(*) AS event_rows,
-  COUNT(DISTINCT user_pseudo_id) AS users
+  MIN(PARSE_DATE('%Y%m%d', _TABLE_SUFFIX)) AS min_event_date,
+  MAX(PARSE_DATE('%Y%m%d', _TABLE_SUFFIX)) AS max_event_date,
+  COUNT(*) AS total_events
 FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
-WHERE _TABLE_SUFFIX BETWEEN '20200101' AND '20201231'
-GROUP BY event_date
-ORDER BY event_date;
+WHERE _TABLE_SUFFIX BETWEEN '00000000' AND '99999999';

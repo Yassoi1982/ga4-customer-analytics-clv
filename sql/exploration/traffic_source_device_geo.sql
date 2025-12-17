@@ -1,15 +1,13 @@
--- Purpose: Understand traffic source, device, geo patterns
--- Traffic fields vary; GA4 sample often uses: traffic_source, device, geo.
+-- Purpose: Understand key dimensions for segmentation & funnel analysis
 
 SELECT
   traffic_source.source AS source,
   traffic_source.medium AS medium,
   device.category AS device_category,
   geo.country AS country,
-  COUNT(*) AS events,
-  COUNT(DISTINCT user_pseudo_id) AS users
+  COUNT(*) AS events
 FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
-WHERE _TABLE_SUFFIX BETWEEN '20200101' AND '20201231'
-GROUP BY 1,2,3,4
+WHERE _TABLE_SUFFIX BETWEEN '00000000' AND '99999999'
+GROUP BY source, medium, device_category, country
 ORDER BY events DESC
 LIMIT 200;

@@ -1,17 +1,17 @@
-# Exploration Notes
+# Exploration Notes (GA4 Sample Ecommerce)
 
 ## Key fields used
-- User key: `user_pseudo_id`
-- Date: `_TABLE_SUFFIX` from `events_*`
-- Sessions proxy: `ga_session_id` from `event_params`
-- Purchase proxy: `event_name = 'purchase'`
-- Revenue proxy: `event_params.key = 'value'` (may be sparse in sample)
-- Dimensions:
-  - `traffic_source.source`, `traffic_source.medium`
-  - `device.category`
-  - `geo.country`
+- user_pseudo_id: user key
+- event_name: behavior/action
+- event_date: derived from _TABLE_SUFFIX
+- ga_session_id: from event_params key = 'ga_session_id'
+- ecommerce.purchase_revenue_in_usd: revenue (purchase events)
+- traffic_source.source / traffic_source.medium
+- device.category
+- geo.country
 
-## Caveats
-- This is an obfuscated GA4 sample dataset with a limited time window.
-- Some revenue fields may be missing or not consistent; revenue in GA4 can also appear in ecommerce items/params depending on implementation.
-- Session-level reconstruction is approximate using `ga_session_id`.
+## Caveats / limitations
+- This is an obfuscated sample GA4 export (not production data).
+- Date range is limited to what exists in events_* tables.
+- Some users may have missing session id on certain events.
+- Revenue should be interpreted from purchase events only.
