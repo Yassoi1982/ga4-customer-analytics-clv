@@ -1,15 +1,17 @@
-# Data Exploration Notes
+# Exploration Notes
 
 ## Key fields used
-- user_pseudo_id: anonymous user identifier
-- event_name: type of GA4 event
-- event_params: nested parameters (revenue, value, session info)
-- traffic_source: marketing attribution
-- device.category: desktop, mobile, tablet
-- geo.country: user location
+- User key: `user_pseudo_id`
+- Date: `_TABLE_SUFFIX` from `events_*`
+- Sessions proxy: `ga_session_id` from `event_params`
+- Purchase proxy: `event_name = 'purchase'`
+- Revenue proxy: `event_params.key = 'value'` (may be sparse in sample)
+- Dimensions:
+  - `traffic_source.source`, `traffic_source.medium`
+  - `device.category`
+  - `geo.country`
 
 ## Caveats
-- Dataset is obfuscated and sampled
-- Limited historical time window
-- Revenue values are event-based, not order-level
-- Some users may have missing traffic source data
+- This is an obfuscated GA4 sample dataset with a limited time window.
+- Some revenue fields may be missing or not consistent; revenue in GA4 can also appear in ecommerce items/params depending on implementation.
+- Session-level reconstruction is approximate using `ga_session_id`.
