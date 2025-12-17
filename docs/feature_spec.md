@@ -1,19 +1,19 @@
-# Feature Spec (User-level Modeling Table)
+# Feature Spec — User-Level Modeling Table
 
 ## User key
-- `user_pseudo_id`
+- user_pseudo_id
 
-## Core behavior features
-- sessions (distinct ga_session_id)
-- purchases (count of purchase events)
-- revenue (sum of purchase value proxy)
-- AOV = revenue / purchases (if purchases > 0)
+## Core metrics
+- sessions: distinct ga_session_id per day
+- purchases: count of purchase events
+- revenue_usd: sum of ecommerce.purchase_revenue_in_usd for purchase events
+- aov_usd: revenue_usd / purchases (if purchases > 0)
 
-## Time features
-- recency_days: days since last event in selected window
-- tenure_days: days between first and last event in selected window
+## Time-based features
+- recency_days: days since last purchase (or last event if no purchase)
+- tenure_days: days between first event and last event
 
-## Attribution / dimensions
-- device_category (most frequent)
-- country (most frequent)
-- source / medium (most frequent)
+## Dimensions (most frequent / latest)
+- device_category
+- country
+- traffic_source (source/medium)
